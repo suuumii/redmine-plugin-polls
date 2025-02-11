@@ -1,0 +1,24 @@
+# Redmineデータ
+/redmine/files/*
+/redmine/themes/*
+
+# MySQLデータ
+/mysql/*
+
+# 環境固有のファイル
+.env
+*.env
+
+# IDE/エディタの設定
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# ログファイル
+*.log
+
+# バックアップファイル
+*.bak
+*~ 

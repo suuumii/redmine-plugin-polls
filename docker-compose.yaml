@@ -1,0 +1,32 @@
+version: '3.1'
+
+services:
+  redmine:
+    image: redmine:4.2.10-bullseye
+    ports:
+      - 8080:3000
+    environment:
+      REDMINE_DB_MYSQL: redmine-mysql-db
+      REDMINE_DB_DATABASE: redmine
+      REDMINE_DB_USERNAME: redmine_user
+      REDMINE_DB_PASSWORD: redmine_password
+      REDMINE_SECRET_KEY_BASE: supersecretkey
+      REDMINE_DB_PORT: 3306
+    volumes:
+      - ./redmine/files:/usr/src/redmine/files
+      - ./redmine/plugins:/usr/src/redmine/plugins
+      - ./redmine/themes:/usr/src/redmine/public/themes
+    depends_on:
+      - redmine-mysql-db
+
+  redmine-mysql-db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: redmine
+      MYSQL_USER: redmine_user
+      MYSQL_PASSWORD: redmine_password
+      MYSQL_ROOT_PASSWORD: root_password
+    volumes:
+      - ./mysql:/var/lib/mysql
+    ports:
+      - 3306:3306

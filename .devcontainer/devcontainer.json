@@ -1,0 +1,20 @@
+{
+    "name": "Redmine Development",
+    "dockerComposeFile": "../docker-compose.yaml",
+    "service": "redmine",
+    "workspaceFolder": "/usr/src/redmine",
+    
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "rebornix.ruby",
+                "castwide.solargraph",
+                "kaiwood.endwise",
+                "redhat.vscode-yaml"
+            ]
+        }
+    },
+    "remoteEnv": {
+        "RAILS_ENV": "production"
+    }
+} 
